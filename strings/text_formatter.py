@@ -1,3 +1,6 @@
+from os import path
+
+
 def text_formatter(text, limit=40):
 
     lines = text.splitlines(keepends=True)
@@ -28,7 +31,9 @@ def text_formatter(text, limit=40):
 
 def main():
     filename = "input_example.txt"
-    with open(filename) as f:
+    basepath = path.dirname(__file__)
+    filepath = path.abspath(path.join(basepath, filename))
+    with open(filepath) as f:
         input_text = f.read()
         output = text_formatter(input_text)
         print(output)
