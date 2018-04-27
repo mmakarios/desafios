@@ -14,12 +14,15 @@ def text_formatter(text, limit=40):
 
         while i < len(words):
             current_word = " " + words[i] if len(current_row) > 0 else words[i]
-            if len(current_row) + len(current_word) <= limit:
+
+            if len(current_row) + len_check(current_word) <= limit:
                 current_row += current_word
                 if current_word.endswith("\n"):
+                    current_row = justify_text(current_row, limit)
                     i += 1
                     break
             else:
+                current_row = justify_text(current_row, limit)
                 current_row += "\n"
                 break
             i += 1
@@ -27,6 +30,33 @@ def text_formatter(text, limit=40):
         output += current_row
 
     return output.strip()
+
+
+def justify_text(line, limit):
+    spaces_missing = limit - len_check(line)
+
+    if spaces_missing > 0 and line != "\n":
+        gaps_count = line.count(" ")
+        row_words = line.split(" ")
+        additional_spaces = spaces_missing // gaps_count
+        uneven_spaces = spaces_missing % gaps_count
+
+        if additional_spaces:
+            for index in enumerate(row_words):
+                row_words[index[0]] += " "*additional_spaces
+
+        j = 0
+        while j < uneven_spaces:
+            row_words[j] += " "
+            j += 1
+
+        line = " ".join(row_words)
+
+    return line
+
+
+def len_check(string):
+    return len(string) - string.count("\n")
 
 
 def main():
