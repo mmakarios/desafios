@@ -60,13 +60,16 @@ def len_check(string):
 
 
 def main():
-    filename = "input_example.txt"
+    filename = "input.txt"
     basepath = path.dirname(__file__)
     filepath = path.abspath(path.join(basepath, filename))
-    with open(filepath) as f:
-        input_text = f.read()
-        output = text_formatter(input_text)
-        print(output)
+    try:
+        with open(filepath) as f:
+            input_text = f.read()
+            output = text_formatter(input_text)
+            print(output)
+    except FileNotFoundError:
+        print("Arquivo não encontrado! Certifique-se de que o seu texto está em um arquivo chamado 'input.txt' na mesma pasta deste script.")
 
 
 if __name__ == '__main__':

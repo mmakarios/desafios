@@ -2,7 +2,7 @@
 
 ## Execução
 
-Para execução do script, primeiramente coloque o texto que deseja formatar no arquivo "input_example.txt", que será lido pelo programa.
+Para execução do script, primeiramente coloque o texto que deseja formatar no arquivo "input.txt", que será lido pelo programa.
 
 ### Docker
 
@@ -22,7 +22,7 @@ A execução do algoritmo formatará o seu texto e exibirá o resultado no termi
 
 ## Desenvolvimento
 
-Para o desenvolvimento do desafio das strings, antes de mais nada, o algoritmo procura um arquivo texto com nome de "input_example.txt" no mesmo diretório do script "text_formatter.py". A utilização da biblioteca `os.path` do Python permite que o programa encontre o caminho da origem da sua execução até o caminho do arquivo texto, permitindo a execução do script fora da pasta do mesmo (útil para ferramentas de debug).
+Para o desenvolvimento do desafio das strings, antes de mais nada, o algoritmo procura um arquivo texto com nome de "input.txt" no mesmo diretório do script "text_formatter.py". A utilização da biblioteca `os.path` do Python permite que o programa encontre o caminho da origem da sua execução até o caminho do arquivo texto, permitindo a execução do script fora da pasta do mesmo (útil para ferramentas de debug).
 
 A string resultante do arquivo texto então é passada para a função de formatação `text_formatter`.
 
