@@ -4,4 +4,4 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-CMD [ "python", "./text_formatter.py" ]
+ENTRYPOINT [ "python", "./text_formatter.py" ]

@@ -18,6 +18,16 @@ E em seguida:
 
 Caso queira rodar o programa sem o Docker, simplesmente execute `python text_formatter.py` na linha de comando. Você não precisa estar no mesmo diretório do script para executá-lo.
 
+#
+
+Para passar um tamanho de linha máximo diferente do padrão (40 caracteres), adicione `--limit` ou `-l` seguido do número desejado no seu comando de execução no terminal. Por exemplo, para limitar o tamanho das linhas formatadas para 25 caracteres:
+
+```docker run -rm my-text-formatter -l 25```
+
+ou
+
+```python text_formatter.py -l 25```
+
 A execução do algoritmo formatará o seu texto e exibirá o resultado no terminal do seu sistema operacional.
 
 ## Desenvolvimento

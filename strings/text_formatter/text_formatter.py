@@ -1,7 +1,8 @@
 from os import path
+import argparse
 
 
-def text_formatter(text, limit=40):
+def text_formatter(text, limit):
 
     lines = text.splitlines(keepends=True)
     words = [word for line in lines for word in line.split(" ")]
@@ -60,13 +61,19 @@ def len_check(string):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Format text based on line limit width and justify it.")
+    parser.add_argument("-l", "--limit", type=int,
+                        help="max line characters", default=40)
+    args = parser.parse_args()
+
     filename = "input.txt"
     basepath = path.dirname(__file__)
     filepath = path.abspath(path.join(basepath, filename))
     try:
         with open(filepath) as f:
             input_text = f.read()
-            output = text_formatter(input_text)
+            output = text_formatter(input_text, args.limit)
             print(output)
     except FileNotFoundError:
         print("Arquivo não encontrado! Certifique-se de que o seu texto está em um arquivo chamado 'input.txt' na mesma pasta deste script.")
