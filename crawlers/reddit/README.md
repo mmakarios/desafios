@@ -12,7 +12,7 @@ Caso queira rodar o programa pelo Docker, execute o comando seguinte na pasta do
 
 Em seguida execute a imagem do algoritmo com o comando:
 
-```docker run reddit_crawl scrapy runspider reddit.py -L ERROR -a subreddits="askreddit;cats"```
+```docker run --rm reddit_crawl scrapy runspider reddit.py -L ERROR -a subreddits="askreddit;cats"```
 
 ### Python
 
@@ -28,7 +28,7 @@ Após instalada, digite o comando no seu terminal:
 
 Independente de como você rodar o programa, você deverá substituir o valor do parâmetro `subreddits=` com os subreddits de sua escolha.
 
-Separando o comando em partes, a primeira seção diz: `docker run reddit_crawl`, que roda a imagem com o nome `reddit_crawl` que você atribuiu no comando anterior. Em seguida, `scrapy runspider` é um comando da biblioteca [Scrapy](https://scrapy.org/) para executar uma spider (crawler) de nome `reddit.py`, que é o nome do arquivo que contém a lógica principal de scraping para navegar pelas páginas. `-L ERROR` atribui o valor `ERROR` para o nível de logging que o comando imprimirá no terminal. `-a` indica que o próximo valor será um parâmetro reconhecido pelo programa. Nesse caso, `subreddits`.
+Separando o comando em partes, a primeira seção (somente na utilização com Docker) diz: `docker run --rm reddit_crawl`, que roda a imagem com o nome `reddit_crawl` que você atribuiu no comando anterior. Em seguida, `scrapy runspider` é um comando da biblioteca [Scrapy](https://scrapy.org/) para executar uma spider (crawler) de nome `reddit.py`, que é o nome do arquivo que contém a lógica principal de scraping para navegar pelas páginas. `-L ERROR` atribui o valor `ERROR` para o nível de logging que o comando imprimirá no terminal. `-a` indica que o próximo valor será um parâmetro reconhecido pelo programa. Nesse caso, `subreddits`.
 
 ## Desenvolvimento
 
