@@ -26,7 +26,7 @@ class Reddit(scrapy.Spider):
 
         for thread in threads:
             data = thread["data"]
-            if data["score"] >= 1500:
+            if data["score"] >= 5000:
                 print("Pontuação:", data["score"])
                 print("Subreddit:", data["subreddit"])
                 print("Título:", data["title"])
